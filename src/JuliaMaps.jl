@@ -1,5 +1,8 @@
-module JuliaMaps
 
-# Write your package code here.
+module JuliaMaps
+include("geocode.jl")
+export geocode
+export geometry
+export address
 
 end
