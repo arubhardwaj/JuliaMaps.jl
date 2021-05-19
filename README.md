@@ -23,12 +23,26 @@ Currently, it can only be used as a geocoding client for Google Maps API. It is 
 using JuliaMaps 
 geocode("Address", "Api Key")
 ````
+
 For example:
 
 ```julia
 geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key")
 ```
 
+For a vector, it'd be required to use [broadcasting](https://julia.guide/broadcasting) feature. For example:
 
 
+```julia
+geocode.(addresses, "API Key")
+```
 
+`geocode()` will call the data from Google Maps API. For printing coordinates of longitudes and latitudes, execute `geometry(geocode_output)`. Example:
+
+```julia
+geocode_output = geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key")
+
+geometry(geocode_output)
+```
+
+It is also possible to print only longitudes and only latitudes using `longitude(geocode_output)` and `latitude(geocode_output)`
