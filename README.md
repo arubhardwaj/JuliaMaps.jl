@@ -46,3 +46,8 @@ geometry(geocode_output)
 ```
 
 It is also possible to print only longitudes and only latitudes using `longitude(geocode_output)` and `latitude(geocode_output)`
+
+
+# Credits
+
+Thanks to [@dzonimn](https://github.com/dzonimn) for help.
