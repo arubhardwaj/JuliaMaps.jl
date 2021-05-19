@@ -8,7 +8,9 @@
 
 ** This package is under heavy construction **
 
-Currently, it is used as a geocoding client for Google Maps API. It is needed to have an API key for using this package, which can be requested from [Google Cloud Console](https://console.cloud.google.com/). For more information on requesting a Google Maps API visit [Google Maps Documentation](https://developers.google.com/maps/gmp-get-started).
+Julia Maps is a package which can be used for geocoding in and plotting data on maps. The idea is to create something like [ggmap](https://github.com/dkahle/ggmap) for plotting maps in Julia. 
+
+Currently, it can only be used as a geocoding client for Google Maps API. It is needed to have an API key for using this package, which can be requested from [Google Cloud Console](https://console.cloud.google.com/). For more information on requesting a Google Maps API visit [Google Maps Documentation](https://developers.google.com/maps/gmp-get-started).
 
 
 # Installation
