@@ -6,12 +6,6 @@ function address(street_address::Vector{String})
     return(street_address)
 end
 
-function geometry(json_response)
-    lat = getindex.(json_response, "lat")
-    lng = getindex.(json_response, "lng")
-    return(DataFrame(lat, lng))
-end
-
 function geom(json_response::Dict{String, Any})
     gem = json_response["results"][1]["geometry"]["location"]
     return((gem))
