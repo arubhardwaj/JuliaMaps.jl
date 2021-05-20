@@ -7,16 +7,19 @@ function address(street_address::Vector{String})
     return(street_address)
 end
 
-function geom(json_response::Dict{String, Any})
-    gem = json_response["results"][1]["geometry"]["location"]
-    return((gem))
-end
-
-function geocode(street_address::String, api_key::String)
+function geocode(street_address::String, api_key::String, method::String)
     street_address = replace.(street_address, r"\s*(,)?\s+" => "+")
-    url = "https://maps.googleapis.com/maps/api/geocode/json?address=$street_address&key=$api_key"
-    response = HTTP.get(url)
-    gem = geom(JSON.parse(String(response.body)))
+    if method == "google"
+        url = "https://maps.googleapis.com/maps/api/geocode/json?address=$street_address&key=$api_key"
+        response = HTTP.get(url)
+        gem = geomgoogle(JSON.parse(String(response.body)))
+    elseif method == "osm"
+        url = "http://www.mapquestapi.com/geocoding/v1/address?key=$api_key&location=$street_address"
+        response = HTTP.get(url)
+        gem = geomOSM(JSON.parse(String(response.body)))
+    else
+        gem = error("Please use method correctly. Currently JuliaMaps.jl only supports two methods: google and osm")
+    end
     return(gem)
 end
 

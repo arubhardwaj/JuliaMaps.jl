@@ -10,7 +10,13 @@
 
 Julia Maps is a package which can be used for geocoding in and plotting data on maps. The idea is to create something like [ggmap](https://github.com/dkahle/ggmap) for plotting maps in Julia. 
 
-Currently, it can only be used as a geocoding client for Google Maps API. It is needed to have an API key for using this package, which can be requested from [Google Cloud Console](https://console.cloud.google.com/). For more information on requesting a Google Maps API visit [Google Maps Documentation](https://developers.google.com/maps/gmp-get-started).
+Currently, it can only be used as a geocoding client for Google Maps API and Open Street Maps API. It is needed to have an API key for using this package, which can be requested from [Google Cloud Console](https://console.cloud.google.com/) (for google maps) and from [Maps Quest](https://developer.mapquest.com/) (for Open Streets Map). 
+
+For more information on requesting an API visit:
+
+- [Google Maps Documentation](https://developers.google.com/maps/gmp-get-started)
+- [MapQuest Documentation]("https://developer.mapquest.com/documentation/geocoding-api/)
+
 
 
 # Installation
@@ -21,26 +27,28 @@ Currently, it can only be used as a geocoding client for Google Maps API. It is 
 
 ```julia
 using JuliaMaps 
-geocode("Address", "Api Key")
+geocode("Address", "Api Key", "method")
 ````
+
+Right now, JuliaMaps.jl supports only two methods: `google` and `osm`. `google` as method supports api from google maps, and `osm` supports api from Open Streets Map.
 
 For example:
 
 ```julia
-geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key")
+geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key", "method")
 ```
 
 For a vector, it'd be required to use [broadcasting](https://julia.guide/broadcasting) feature. For example:
 
 
 ```julia
-geocode.(addresses, "API Key")
+geocode.(addresses, "API Key", "method")
 ```
 
 `geocode()` will call the data from Google Maps API. For printing coordinates of longitudes and latitudes, execute `geometry(geocode_output)`. Example:
 
 ```julia
-geocode_output = geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key")
+geocode_output = geocode("1600 Amphitheatre Parkway, Mountain View, CA", "API Key", "method")
 
 geometry(geocode_output)
 ```

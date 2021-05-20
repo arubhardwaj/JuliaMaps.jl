@@ -1,9 +1,18 @@
 
+function geomgoogle(json_response::Dict{String, Any})
+    gem = json_response["results"][1]["geometry"]["location"]
+    return((gem))
+end
+
+function geomOSM(json_response::Dict{String, Any})
+    gem = json_response["results"][1]["locations"][1]["latLng"]
+    return((gem))
+end
+
 function longitude(geocode_output)
     lng = getindex.(geocode_output, "lng")
     return(lng)
 end
-
 
 function latitude(geocode_output)
     lat = getindex.(geocode_output, "lat")

@@ -5,7 +5,8 @@ module JuliaMaps
     export geocode
     export geometry
     export address
-    export geom
+    export geomgoogle
+    export geomOSM
     export longitude
     export latitude
 end
