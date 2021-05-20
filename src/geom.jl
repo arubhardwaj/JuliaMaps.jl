@@ -6,6 +6,6 @@ end
 
 
 function latitude(geocode_output)
-    lat = getindex.(json_response, "lat")
+    lat = getindex.(geocode_output, "lat")
     return(lat)
 end

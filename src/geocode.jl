@@ -1,5 +1,6 @@
 using HTTP
 using JSON
+using DataFrames
 
 function address(street_address::Vector{String})
     street_address = replace.(street_address, r"\s*(,)?\s+" => "+")
@@ -22,6 +23,6 @@ end
 function geometry(geocode_output)
     lat = getindex.(geocode_output, "lat")
     lng = getindex.(geocode_output, "lng")
-    d = DataFrame(Longitude = lng, Latitude = lat)
+    d   = DataFrame(Longitude = lng, Latitude = lat)
     return(d)
 end
