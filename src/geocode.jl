@@ -16,7 +16,7 @@ function address(street_address::Vector{String})
     return(street_address)
 end
 
-"""@docs
+@doc"""
         `julia> geocode(street_address::String, api_key::String, method::String)`
 
 JuliaMaps has `geocode()` for obtaining the coordingates of locations. It will produce `longitude` and `latitude` of location in `Dict`.
