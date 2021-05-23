@@ -39,5 +39,3 @@ function latitude(geocode_output)
     lat = getindex.(geocode_output, "lat")
     return(lat)
 end
-
-makedocs(sitename="JuliaMaps")
